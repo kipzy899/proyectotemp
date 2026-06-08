@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Temp: <span id="temp">--</span>°C</h2>
+  <h2>Humedad: <span id="hum">--</span>%</h2>
+  <canvas id="chart"></canvas>
+
+<script>
+  const client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt')
+  client.subscribe('esp32/dht22/data')
+
+  client.on('message', (topic, payload) => {
+    const data = JSON.parse(payload.toString())
+    document.getElementById('temp').innerText = data.temperatura
+    document.getElementById('hum').innerText = data.humedad
+  })
+</script>
+</body>
+</html>
