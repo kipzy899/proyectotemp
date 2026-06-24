@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Temperatura y Humedad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Monitor DHT11</h1>
+            <p class="subtitle">Sistema de monitoreo de temperatura y humedad</p>
+        </header>
+
+        <main>
+            <!-- Sección de botones de navegación -->
+            <div class="button-container">
+                <button class="nav-button active" data-view="current">
+                    📍 Datos Actuales
+                </button>
+                <button class="nav-button" data-view="history">
+                    📈 Histórico
+                </button>
+            </div>
+
+            <!-- Vista de datos actuales -->
+            <section id="current-view" class="view-section active">
+                <div class="cards-container">
+                    <div class="card temperature-card">
+                        <div class="card-icon">🌡️</div>
+                        <div class="card-content">
+                            <h3>Temperatura</h3>
+                            <div class="metric-value" id="current-temp">--</div>
+                            <div class="metric-unit">°C</div>
+                        </div>
+                    </div>
+
+                    <div class="card humidity-card">
+                        <div class="card-icon">💧</div>
+                        <div class="card-content">
+                            <h3>Humedad</h3>
+                            <div class="metric-value" id="current-humidity">--</div>
+                            <div class="metric-unit">%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-row">
+                        <span class="label">⏰ Última actualización:</span>
+                        <span class="value" id="last-update">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">🔌 Estado de conexión:</span>
+                        <span class="value status" id="connection-status">Desconectado</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">📡 Total de lecturas:</span>
+                        <span class="value" id="total-readings">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vista de histórico -->
+            <section id="history-view" class="view-section">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="time-range">Rango de tiempo:</label>
+                        <select id="time-range">
+                            <option value="hour">Última hora</option>
+                            <option value="day">Último día</option>
+                            <option value="week">Última semana</option>
+                            <option value="month">Último mes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="temperature-chart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="humidity-chart"></canvas>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha/Hora</th>
+                                <th>Temperatura (°C)</th>
+                                <th>Humedad (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data-table-body">
+                            <tr>
+                                <td colspan="3" class="no-data">Cargando datos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 kipzy899 | ESP32 + DHT11 + MQTT</p>
+        </footer>
+    </div>
+
+    <!-- Script para gráficas (Chart.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
