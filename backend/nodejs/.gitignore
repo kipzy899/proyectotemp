@@ -1,0 +1,22 @@
+# .gitignore - No subir estos archivos a GitHub
+
+# Variables de entorno (NUNCA subir con credenciales)
+.env
+.env.local
+.env.*.local
+
+# Dependencias de Node
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store

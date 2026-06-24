@@ -1,0 +1,14 @@
+{
+  "name": "mqtt-to-supabase",
+  "version": "1.0.0",
+  "description": "Integración HiveMQ Cloud -> Supabase",
+  "main": "mqtt_to_supabase.js",
+  "scripts": {
+    "start": "node mqtt_to_supabase.js"
+  },
+  "dependencies": {
+    "mqtt": "^5.0.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "dotenv": "^16.3.1"
+  }
+}
