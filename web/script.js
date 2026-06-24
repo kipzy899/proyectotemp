@@ -1,6 +1,6 @@
 // ============== CONFIGURACIÓN ==============
-const API_BASE_URL = 'https://tu-proyecto.supabase.co/rest/v1'; // CAMBIAR
-const SUPABASE_KEY = 'tu-anon-key'; // CAMBIAR
+const API_BASE_URL = 'https://sb_publishable_R06lpsaDNebq5zfDIajOSg_DKhdBmvi.supabase.co/rest/v1'; // CAMBIAR
+const SUPABASE_KEY = 'sb_publishable_R06lpsaDNebq5zfDIajOSg_DKhdBmvi'; // CAMBIAR
 const TABLE_NAME = 'lecturas';
 
 // ============== VARIABLES GLOBALES ==============
